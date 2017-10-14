@@ -11,9 +11,12 @@ namespace MilenaSapunova.TerminateConracts.Web.App_Start
 
     using Ninject;
     using Ninject.Web.Common;
+    using Ninject.Extensions.Conventions;
     using MilenaSapunova.Terminate.Auth.Contracts;
-    using MilenaSapunova.TerminateConracts.Auth;
     using MilenaSapunova.Terminate.Auth;
+    using MilenaSapunova.Terminate.Data.Reositories;
+    using System.Data.Entity;
+    using MilenaSapunova.TerminateConracts.Data.Models;
 
     public static class NinjectWebCommon
     {
@@ -65,9 +68,17 @@ namespace MilenaSapunova.TerminateConracts.Web.App_Start
         /// <param name="kernel">The kernel.</param>
         private static void RegisterServices(IKernel kernel)
         {
+            kernel.Bind(x =>
+            {
+                x.FromThisAssembly()
+                 .SelectAllClasses()
+                 .BindDefaultInterface();
+            });
+
             kernel.Bind<ISignInService>().ToMethod(_ => HttpContext.Current.GetOwinContext().Get<ApplicationSignInManager>());
             kernel.Bind<IUserService>().ToMethod(_ => HttpContext.Current.GetOwinContext().Get<ApplicationUserManager>());
-
+            kernel.Bind(typeof(DbContext), typeof(MsSqlDbContext)).To<MsSqlDbContext>().InRequestScope();
+            kernel.Bind(typeof(IEfRepository<>)).To(typeof(EfRepository<>));
         }
     }
 }
