@@ -11,6 +11,7 @@ namespace MilenaSapunova.TerminateConracts.Web.App_Start
 
     using Ninject;
     using Ninject.Web.Common;
+    using Ninject.Extensions.Conventions;
     using MilenaSapunova.Terminate.Auth.Contracts;
     using MilenaSapunova.Terminate.Auth;
     using MilenaSapunova.Terminate.Data.Reositories;
