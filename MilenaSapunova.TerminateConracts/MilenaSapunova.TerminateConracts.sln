@@ -7,13 +7,13 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MilenaSapunova.TerminateCon
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{4D8ED584-A9ED-4330-9D7D-9981623AE28A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MilenaSapunova.Terminate.Auth", "MilenaSapunova.Terminate.Auth\MilenaSapunova.Terminate.Auth.csproj", "{C8C396A6-0E85-4023-B445-2CC549D44AFA}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MilenaSapunova.TerminateContracts.Auth", "MilenaSapunova.TerminateContracts.Auth\MilenaSapunova.TerminateContracts.Auth.csproj", "{C8C396A6-0E85-4023-B445-2CC549D44AFA}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Data", "Data", "{29357B7C-AD3D-43AF-8071-A1395D9DBFC7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MilenaSapunova.Terminate.Data", "MilenaSapunova.Terminate.Data\MilenaSapunova.Terminate.Data.csproj", "{E0A1341D-71B8-4D3B-8176-142BBF867F1D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MilenaSapunova.TerminateContracts.Data", "MilenaSapunova.TerminateContracts.Data\MilenaSapunova.TerminateContracts.Data.csproj", "{E0A1341D-71B8-4D3B-8176-142BBF867F1D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MilenaSapunova.Terminate.Model", "MilenaSapunova.Terminate.Model\MilenaSapunova.Terminate.Model.csproj", "{32141C59-DC81-4434-A9AD-978DC006833A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MilenaSapunova.TerminateContracts.Model", "MilenaSapunova.TerminateContracts.Model\MilenaSapunova.TerminateContracts.Model.csproj", "{32141C59-DC81-4434-A9AD-978DC006833A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

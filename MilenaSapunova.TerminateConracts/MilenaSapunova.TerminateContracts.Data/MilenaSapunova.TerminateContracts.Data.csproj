@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{32141C59-DC81-4434-A9AD-978DC006833A}</ProjectGuid>
+    <ProjectGuid>{E0A1341D-71B8-4D3B-8176-142BBF867F1D}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>MilenaSapunova.Terminate.Model</RootNamespace>
-    <AssemblyName>MilenaSapunova.Terminate.Model</AssemblyName>
+    <RootNamespace>MilenaSapunova.TerminateContracts.Data</RootNamespace>
+    <AssemblyName>MilenaSapunova.TerminateContracts.Data</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -53,16 +53,30 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Abstract\DataModel.cs" />
-    <Compile Include="Contract.cs" />
-    <Compile Include="Contracts\IAuditable.cs" />
-    <Compile Include="Contracts\IDeletable.cs" />
+    <Compile Include="Migrations\201710141903155_Initialize Admin.cs" />
+    <Compile Include="Migrations\201710141903155_Initialize Admin.Designer.cs">
+      <DependentUpon>201710141903155_Initialize Admin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MsSqlDbContext.cs" />
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="User.cs" />
+    <Compile Include="Reositories\EfRepository.cs" />
+    <Compile Include="Reositories\IEfRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MilenaSapunova.TerminateContracts.Model\MilenaSapunova.TerminateContracts.Model.csproj">
+      <Project>{32141c59-dc81-4434-a9ad-978dc006833a}</Project>
+      <Name>MilenaSapunova.TerminateContracts.Model</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201710141903155_Initialize Admin.resx">
+      <DependentUpon>201710141903155_Initialize Admin.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

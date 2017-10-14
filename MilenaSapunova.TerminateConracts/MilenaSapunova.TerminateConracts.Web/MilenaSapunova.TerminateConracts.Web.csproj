@@ -201,7 +201,7 @@
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
-    <Compile Include="App_Start\NinjectWebCommon.cs" />
+    <Compile Include="App_Start\InjectionConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -276,17 +276,17 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\MilenaSapunova.Terminate.Auth\MilenaSapunova.Terminate.Auth.csproj">
+    <ProjectReference Include="..\MilenaSapunova.TerminateContracts.Auth\MilenaSapunova.TerminateContracts.Auth.csproj">
       <Project>{c8c396a6-0e85-4023-b445-2cc549d44afa}</Project>
-      <Name>MilenaSapunova.Terminate.Auth</Name>
+      <Name>MilenaSapunova.TerminateContracts.Auth</Name>
     </ProjectReference>
-    <ProjectReference Include="..\MilenaSapunova.Terminate.Data\MilenaSapunova.Terminate.Data.csproj">
+    <ProjectReference Include="..\MilenaSapunova.TerminateContracts.Data\MilenaSapunova.TerminateContracts.Data.csproj">
       <Project>{e0a1341d-71b8-4d3b-8176-142bbf867f1d}</Project>
-      <Name>MilenaSapunova.Terminate.Data</Name>
+      <Name>MilenaSapunova.TerminateContracts.Data</Name>
     </ProjectReference>
-    <ProjectReference Include="..\MilenaSapunova.Terminate.Model\MilenaSapunova.Terminate.Model.csproj">
+    <ProjectReference Include="..\MilenaSapunova.TerminateContracts.Model\MilenaSapunova.TerminateContracts.Model.csproj">
       <Project>{32141c59-dc81-4434-a9ad-978dc006833a}</Project>
-      <Name>MilenaSapunova.Terminate.Model</Name>
+      <Name>MilenaSapunova.TerminateContracts.Model</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

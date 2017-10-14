@@ -1,5 +1,5 @@
-[assembly: WebActivatorEx.PreApplicationStartMethod(typeof(MilenaSapunova.TerminateConracts.Web.App_Start.NinjectWebCommon), "Start")]
-[assembly: WebActivatorEx.ApplicationShutdownMethodAttribute(typeof(MilenaSapunova.TerminateConracts.Web.App_Start.NinjectWebCommon), "Stop")]
+[assembly: WebActivatorEx.PreApplicationStartMethod(typeof(MilenaSapunova.TerminateConracts.Web.App_Start.InjectionConfig), "Start")]
+[assembly: WebActivatorEx.ApplicationShutdownMethodAttribute(typeof(MilenaSapunova.TerminateConracts.Web.App_Start.InjectionConfig), "Stop")]
 
 namespace MilenaSapunova.TerminateConracts.Web.App_Start
 {
@@ -18,7 +18,7 @@ namespace MilenaSapunova.TerminateConracts.Web.App_Start
     using System.Data.Entity;
     using MilenaSapunova.TerminateConracts.Data.Models;
 
-    public static class NinjectWebCommon
+    public static class InjectionConfig
     {
         private static readonly Bootstrapper bootstrapper = new Bootstrapper();
 
@@ -74,7 +74,6 @@ namespace MilenaSapunova.TerminateConracts.Web.App_Start
                  .SelectAllClasses()
                  .BindDefaultInterface();
             });
-
             kernel.Bind<ISignInService>().ToMethod(_ => HttpContext.Current.GetOwinContext().Get<ApplicationSignInManager>());
             kernel.Bind<IUserService>().ToMethod(_ => HttpContext.Current.GetOwinContext().Get<ApplicationUserManager>());
             kernel.Bind(typeof(DbContext), typeof(MsSqlDbContext)).To<MsSqlDbContext>().InRequestScope();
