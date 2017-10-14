@@ -60,6 +60,8 @@
     <Compile Include="MsSqlDbContext.cs" />
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Reositories\EfRepository.cs" />
+    <Compile Include="Reositories\IEfRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
