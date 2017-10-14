@@ -46,6 +46,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.AspNet.Identity.EntityFramework">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.EntityFramework.2.2.1\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.7\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
     </Reference>
@@ -139,9 +142,6 @@
     </Reference>
     <Reference Include="Microsoft.AspNet.Identity.Owin">
       <HintPath>..\packages\Microsoft.AspNet.Identity.Owin.2.2.1\lib\net45\Microsoft.AspNet.Identity.Owin.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.AspNet.Identity.EntityFramework">
-      <HintPath>..\packages\Microsoft.AspNet.Identity.EntityFramework.2.2.1\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
     </Reference>
     <Reference Include="Owin">
       <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
@@ -275,6 +275,14 @@
     <ProjectReference Include="..\MilenaSapunova.Terminate.Auth\MilenaSapunova.Terminate.Auth.csproj">
       <Project>{c8c396a6-0e85-4023-b445-2cc549d44afa}</Project>
       <Name>MilenaSapunova.Terminate.Auth</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MilenaSapunova.Terminate.Data\MilenaSapunova.Terminate.Data.csproj">
+      <Project>{e0a1341d-71b8-4d3b-8176-142bbf867f1d}</Project>
+      <Name>MilenaSapunova.Terminate.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MilenaSapunova.Terminate.Model\MilenaSapunova.Terminate.Model.csproj">
+      <Project>{32141c59-dc81-4434-a9ad-978dc006833a}</Project>
+      <Name>MilenaSapunova.Terminate.Model</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

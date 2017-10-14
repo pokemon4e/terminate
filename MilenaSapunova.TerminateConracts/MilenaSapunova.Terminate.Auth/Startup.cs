@@ -3,8 +3,8 @@ using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin;
 using Microsoft.Owin.Security.Cookies;
 using MilenaSapunova.Terminate.Auth;
-using MilenaSapunova.Terminate.Auth.Models;
-using MilenaSapunova.TerminateConracts.Auth.Models;
+using MilenaSapunova.Terminate.Data.Models;
+using MilenaSapunova.TerminateConracts.Data.Models;
 using Owin;
 using System;
 
@@ -22,7 +22,7 @@ namespace MilenaSapunova.TerminateConracts.Auth
         public void ConfigureAuth(IAppBuilder app)
         {
             // Configure the db context, user manager and signin manager to use a single instance per request
-            app.CreatePerOwinContext(ApplicationDbContext.Create);
+            app.CreatePerOwinContext(MsSqlDbContext.Create);
             app.CreatePerOwinContext<ApplicationUserManager>(ApplicationUserManager.Create);
             app.CreatePerOwinContext<ApplicationSignInManager>(ApplicationSignInManager.Create);
 
@@ -37,7 +37,7 @@ namespace MilenaSapunova.TerminateConracts.Auth
                 {
                     // Enables the application to validate the security stamp when the user logs in.
                     // This is a security feature which is used when you change a password or add an external login to your account.  
-                    OnValidateIdentity = SecurityStampValidator.OnValidateIdentity<ApplicationUserManager, ApplicationUser>(
+                    OnValidateIdentity = SecurityStampValidator.OnValidateIdentity<ApplicationUserManager, User>(
                         validateInterval: TimeSpan.FromMinutes(30),
                         regenerateIdentity: (manager, user) => user.GenerateUserIdentityAsync(manager))
                 }

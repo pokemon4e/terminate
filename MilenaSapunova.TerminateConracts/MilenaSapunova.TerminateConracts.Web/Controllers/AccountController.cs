@@ -7,7 +7,7 @@ using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using MilenaSapunova.TerminateConracts.Web.Models;
 using MilenaSapunova.Terminate.Auth.Contracts;
-using MilenaSapunova.Terminate.Auth.Models;
+using MilenaSapunova.Terminate.Data.Models;
 
 namespace MilenaSapunova.TerminateConracts.Web.Controllers
 {
@@ -104,7 +104,7 @@ namespace MilenaSapunova.TerminateConracts.Web.Controllers
         {
             if (ModelState.IsValid)
             {
-                var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
+                var user = new User { UserName = model.Email, Email = model.Email };
                 var result = await this.userService.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
@@ -274,7 +274,7 @@ namespace MilenaSapunova.TerminateConracts.Web.Controllers
                 {
                     return View("ExternalLoginFailure");
                 }
-                var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
+                var user = new User { UserName = model.Email, Email = model.Email };
                 var result = await this.userService.CreateAsync(user);
                 if (result.Succeeded)
                 {

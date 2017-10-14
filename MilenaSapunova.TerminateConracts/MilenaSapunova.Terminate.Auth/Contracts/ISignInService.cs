@@ -1,5 +1,5 @@
 ﻿using Microsoft.AspNet.Identity.Owin;
-using MilenaSapunova.Terminate.Auth.Models;
+using MilenaSapunova.Terminate.Data.Models;
 using System;
 using System.Threading.Tasks;
 
@@ -11,7 +11,7 @@ namespace MilenaSapunova.Terminate.Auth.Contracts
 
         Task<bool> HasBeenVerifiedAsync();
 
-        Task SignInAsync(ApplicationUser user, bool isPersistent, bool rememberBrowser);
+        Task SignInAsync(User user, bool isPersistent, bool rememberBrowser);
 
         Task<SignInStatus> TwoFactorSignInAsync(string provider, string code, bool isPersistent, bool rememberBrowser);
 
