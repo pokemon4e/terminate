@@ -1,18 +1,20 @@
-﻿using MilenaSapunova.Terminate.Model.Contracts;
+﻿using Bytes2you.Validation;
+using MilenaSapunova.Terminate.Model.Contracts;
 using MilenaSapunova.TerminateConracts.Data.Models;
 using System;
 using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
 using System.Linq;
 
-namespace MilenaSapunova.Terminate.Data.Reositories
+namespace MilenaSapunova.Terminate.Data.Repositories
 {
-    public class EfRepository<T> : IEfRepository<T> where T : class, IDeletable
+    public class EfRepository<T> : IEfRepository<T> where T : class, IDeletable, IAuditable
     {
         private readonly MsSqlDbContext context;
 
         public EfRepository(MsSqlDbContext context)
         {
+            Guard.WhenArgument(context, "MsSqlDbContext").IsNull().Throw();
             this.context = context;
         }
 
@@ -34,6 +36,7 @@ namespace MilenaSapunova.Terminate.Data.Reositories
 
         public void Add(T entity)
         {
+            Guard.WhenArgument(entity, "entity").IsNull().Throw();
             DbEntityEntry entry = this.context.Entry(entity);
 
             if (entry.State != EntityState.Detached)
@@ -48,6 +51,8 @@ namespace MilenaSapunova.Terminate.Data.Reositories
 
         public void Delete(T entity)
         {
+            Guard.WhenArgument(entity, "entity").IsNull().Throw();
+
             entity.IsDeleted = true;
             entity.DeletedOn = DateTime.Now;
 
@@ -57,6 +62,8 @@ namespace MilenaSapunova.Terminate.Data.Reositories
 
         public void Update(T entity)
         {
+            Guard.WhenArgument(entity, "entity").IsNull().Throw();
+
             DbEntityEntry entry = this.context.Entry(entity);
             if (entry.State == EntityState.Detached)
             {

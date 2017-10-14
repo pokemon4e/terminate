@@ -1,6 +1,6 @@
 ﻿using System.Linq;
 
-namespace MilenaSapunova.Terminate.Data.Reositories
+namespace MilenaSapunova.Terminate.Data.Repositories
 {
     public interface IEfRepository<T> where T : class
     {
