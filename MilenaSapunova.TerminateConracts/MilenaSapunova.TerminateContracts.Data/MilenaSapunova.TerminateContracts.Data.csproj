@@ -57,6 +57,10 @@
     <Compile Include="Migrations\201710141903155_Initialize Admin.Designer.cs">
       <DependentUpon>201710141903155_Initialize Admin.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201710142050142_Add User fields.cs" />
+    <Compile Include="Migrations\201710142050142_Add User fields.Designer.cs">
+      <DependentUpon>201710142050142_Add User fields.cs</DependentUpon>
+    </Compile>
     <Compile Include="MsSqlDbContext.cs" />
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -76,6 +80,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201710141903155_Initialize Admin.resx">
       <DependentUpon>201710141903155_Initialize Admin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710142050142_Add User fields.resx">
+      <DependentUpon>201710142050142_Add User fields.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
