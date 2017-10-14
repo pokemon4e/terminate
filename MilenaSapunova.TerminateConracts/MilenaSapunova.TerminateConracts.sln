@@ -3,9 +3,32 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27004.2002
 MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MilenaSapunova.TerminateConracts.Web", "MilenaSapunova.TerminateConracts.Web\MilenaSapunova.TerminateConracts.Web.csproj", "{44AF184F-F5AC-406F-A177-CE9DB4477D4B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{4D8ED584-A9ED-4330-9D7D-9981623AE28A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MilenaSapunova.Terminate.Auth", "MilenaSapunova.Terminate.Auth\MilenaSapunova.Terminate.Auth.csproj", "{C8C396A6-0E85-4023-B445-2CC549D44AFA}"
+EndProject
 Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{44AF184F-F5AC-406F-A177-CE9DB4477D4B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{44AF184F-F5AC-406F-A177-CE9DB4477D4B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{44AF184F-F5AC-406F-A177-CE9DB4477D4B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{44AF184F-F5AC-406F-A177-CE9DB4477D4B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C8C396A6-0E85-4023-B445-2CC549D44AFA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C8C396A6-0E85-4023-B445-2CC549D44AFA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C8C396A6-0E85-4023-B445-2CC549D44AFA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C8C396A6-0E85-4023-B445-2CC549D44AFA}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{C8C396A6-0E85-4023-B445-2CC549D44AFA} = {4D8ED584-A9ED-4330-9D7D-9981623AE28A}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {2CF7F7E4-30CB-416B-BC1C-F37DF002047A}
