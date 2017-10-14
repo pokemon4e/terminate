@@ -1,13 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using MilenaSapunova.Terminate.Model.Abstract;
+using System;
 
 namespace MilenaSapunova.Terminate.Data.Models
 {
-    public class Contract
+    public class Contract : DataModel
     {
+        public User Owner { get; set; }
 
+        public string ContractNumber { get; set; }
+
+        public String Title { get; set; }
+
+        public DateTime TerminationDate { get; set; }
+
+        public TimeSpan NoticePeriod { get; set; }
     }
 }
