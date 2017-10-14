@@ -1,5 +1,7 @@
 ﻿using MilenaSapunova.Terminate.Model.Abstract;
+using MilenaSapunova.TerminateContracts.Model.DataValidation;
 using System;
+using System.ComponentModel.DataAnnotations;
 
 namespace MilenaSapunova.Terminate.Data.Models
 {
@@ -7,12 +9,16 @@ namespace MilenaSapunova.Terminate.Data.Models
     {
         public User Owner { get; set; }
 
+        [MaxLength(ModelsConstraints.ContractTitleMaxLength), MinLength(ModelsConstraints.ContractTitleMinLength)]
+        public string Title { get; set; }
+
+        [MaxLength(ModelsConstraints.ContractNumberMaxLength), MinLength(ModelsConstraints.ContractNumberMinLength)]
         public string ContractNumber { get; set; }
 
-        public String Title { get; set; }
-
+        [DateInTheFuture]
         public DateTime TerminationDate { get; set; }
 
-        public TimeSpan NoticePeriod { get; set; }
+        [DateInTheFuture]
+        public DateTime NotificationDate { get; set; }
     }
 }

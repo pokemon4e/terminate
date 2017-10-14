@@ -51,5 +51,37 @@ namespace MilenaSapunova.TerminateConracts.Data.Models
         {
             return new MsSqlDbContext();
         }
+
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            this.OnContractModelCreating(modelBuilder);
+            base.OnModelCreating(modelBuilder);
+        }
+
+        private void OnContractModelCreating(DbModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Contract>()
+                .HasRequired(c => c.Owner);
+
+            modelBuilder.Entity<Contract>()
+                .Property(c => c.Title)
+                .IsRequired()
+                .HasColumnType("nvarchar");
+
+            modelBuilder.Entity<Contract>()
+                .Property(c => c.ContractNumber)
+                .IsOptional()
+                .HasColumnType("nvarchar");
+
+            modelBuilder.Entity<Contract>()
+                .Property(c => c.TerminationDate)
+                .IsRequired()
+                .HasColumnType("date");
+
+            modelBuilder.Entity<Contract>()
+                .Property(c => c.NotificationDate)
+                .IsRequired()
+                .HasColumnType("date");
+        }
     }
 }
