@@ -1,15 +1,17 @@
 ﻿using MilenaSapunova.Terminate.Model.Contracts;
 using MilenaSapunova.TerminateConracts.Data.Models;
 using System;
+using System.Data.Entity;
+using System.Data.Entity.Infrastructure;
 using System.Linq;
 
 namespace MilenaSapunova.Terminate.Data.Reositories
 {
-    public class EfRepostory<T> : IEfRepository<T> where T : class, IDeletable
+    public class EfRepository<T> : IEfRepository<T> where T : class, IDeletable
     {
         private readonly MsSqlDbContext context;
 
-        public EfRepostory(MsSqlDbContext context)
+        public EfRepository(MsSqlDbContext context)
         {
             this.context = context;
         }
