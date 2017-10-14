@@ -12,8 +12,8 @@ namespace MilenaSapunova.TerminateConracts.Web.App_Start
     using Ninject;
     using Ninject.Web.Common;
     using MilenaSapunova.Terminate.Auth.Contracts;
-    using MilenaSapunova.TerminateConracts.Auth;
     using MilenaSapunova.Terminate.Auth;
+    using MilenaSapunova.Terminate.Data.Reositories;
 
     public static class NinjectWebCommon
     {
@@ -67,7 +67,7 @@ namespace MilenaSapunova.TerminateConracts.Web.App_Start
         {
             kernel.Bind<ISignInService>().ToMethod(_ => HttpContext.Current.GetOwinContext().Get<ApplicationSignInManager>());
             kernel.Bind<IUserService>().ToMethod(_ => HttpContext.Current.GetOwinContext().Get<ApplicationUserManager>());
-
+            kernel.Bind(typeof(IEfRepository<>)).To(typeof(EfRepository<>));
         }
     }
 }
