@@ -53,6 +53,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Migrations\201710141903155_Initialize Admin.cs" />
+    <Compile Include="Migrations\201710141903155_Initialize Admin.Designer.cs">
+      <DependentUpon>201710141903155_Initialize Admin.cs</DependentUpon>
+    </Compile>
     <Compile Include="MsSqlDbContext.cs" />
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -66,6 +70,11 @@
       <Project>{32141c59-dc81-4434-a9ad-978dc006833a}</Project>
       <Name>MilenaSapunova.Terminate.Model</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201710141903155_Initialize Admin.resx">
+      <DependentUpon>201710141903155_Initialize Admin.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

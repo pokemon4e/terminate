@@ -9,6 +9,7 @@ namespace MilenaSapunova.TerminateConracts.Data.Models
         {
         }
 
+
         public static MsSqlDbContext Create()
         {
             return new MsSqlDbContext();
