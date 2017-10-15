@@ -1,4 +1,4 @@
-namespace MilenaSapunova.Terminate.Data.Migrations
+namespace MilenaSapunova.TerminateContracts.Data.Migrations
 {
     using System.Data.Entity.Migrations;
     

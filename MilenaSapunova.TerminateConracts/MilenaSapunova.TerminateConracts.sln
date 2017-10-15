@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27004.2002
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MilenaSapunova.TerminateConracts.Web", "MilenaSapunova.TerminateConracts.Web\MilenaSapunova.TerminateConracts.Web.csproj", "{44AF184F-F5AC-406F-A177-CE9DB4477D4B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MilenaSapunova.TerminateContracts.Web", "MilenaSapunova.TerminateContracts.Web\MilenaSapunova.TerminateContracts.Web.csproj", "{44AF184F-F5AC-406F-A177-CE9DB4477D4B}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{4D8ED584-A9ED-4330-9D7D-9981623AE28A}"
 EndProject

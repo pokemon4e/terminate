@@ -1,4 +1,4 @@
-﻿using MilenaSapunova.Terminate.Model.Abstract;
+﻿using MilenaSapunova.TerminateContracts.Model.Abstract;
 using MilenaSapunova.TerminateContracts.Model.DataValidation;
 using System.ComponentModel.DataAnnotations;
 

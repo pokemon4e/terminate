@@ -3,11 +3,11 @@ using System.Security.Claims;
 using System.Threading.Tasks;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
-using MilenaSapunova.Terminate.Model.Contracts;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using MilenaSapunova.TerminateContracts.Model.Contracts;
 
-namespace MilenaSapunova.Terminate.Data.Models
+namespace MilenaSapunova.TerminateContracts.Models
 {
     public class User : IdentityUser, IDeletable, IAuditable
     {

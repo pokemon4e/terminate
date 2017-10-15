@@ -1,14 +1,14 @@
-namespace MilenaSapunova.Terminate.Data.Migrations
+namespace MilenaSapunova.TerminateContracts.Data.Migrations
 {
     using Microsoft.AspNet.Identity;
     using Microsoft.AspNet.Identity.EntityFramework;
-    using MilenaSapunova.Terminate.Data.Models;
-    using MilenaSapunova.TerminateConracts.Data.Models;
+    using MilenaSapunova.TerminateContracts.Data.Models;
+    using MilenaSapunova.TerminateContracts.Models;
     using System;
     using System.Data.Entity.Migrations;
     using System.Linq;
 
-    public sealed class Configuration : DbMigrationsConfiguration<TerminateConracts.Data.Models.MsSqlDbContext>
+    public sealed class Configuration : DbMigrationsConfiguration<MsSqlDbContext>
     {
         public Configuration()
         {

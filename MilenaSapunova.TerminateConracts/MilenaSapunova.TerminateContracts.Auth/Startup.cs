@@ -2,14 +2,13 @@
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin;
 using Microsoft.Owin.Security.Cookies;
-using MilenaSapunova.Terminate.Auth;
-using MilenaSapunova.Terminate.Data.Models;
-using MilenaSapunova.TerminateConracts.Data.Models;
+using MilenaSapunova.TerminateContracts.Data.Models;
+using MilenaSapunova.TerminateContracts.Models;
 using Owin;
 using System;
 
-[assembly: OwinStartupAttribute(typeof(MilenaSapunova.TerminateConracts.Auth.Startup))]
-namespace MilenaSapunova.TerminateConracts.Auth
+[assembly: OwinStartupAttribute(typeof(MilenaSapunova.TerminateContracts.Auth.Startup))]
+namespace MilenaSapunova.TerminateContracts.Auth
 {
     public partial class Startup
     {

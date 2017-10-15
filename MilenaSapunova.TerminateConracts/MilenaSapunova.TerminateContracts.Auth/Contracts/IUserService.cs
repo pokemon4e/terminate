@@ -1,10 +1,10 @@
 ﻿using Microsoft.AspNet.Identity;
-using MilenaSapunova.Terminate.Data.Models;
+using MilenaSapunova.TerminateContracts.Models;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace MilenaSapunova.Terminate.Auth.Contracts
+namespace MilenaSapunova.TerminateContracts.Auth.Contracts
 {
     public interface IUserService : IDisposable
     {

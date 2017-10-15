@@ -1,13 +1,14 @@
 ﻿using Microsoft.AspNet.Identity.EntityFramework;
-using MilenaSapunova.Terminate.Data.Models;
-using MilenaSapunova.Terminate.Model.Contracts;
+using MilenaSapunova.TerminateContracts.Model;
+using MilenaSapunova.TerminateContracts.Model.Contracts;
+using MilenaSapunova.TerminateContracts.Models;
 using System;
 using System.Data.Entity;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace MilenaSapunova.TerminateConracts.Data.Models
+namespace MilenaSapunova.TerminateContracts.Data.Models
 {
     public class MsSqlDbContext : IdentityDbContext<User>
     {
@@ -55,6 +56,7 @@ namespace MilenaSapunova.TerminateConracts.Data.Models
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             this.OnContractModelCreating(modelBuilder);
+            this.OnCompanyModelCreating(modelBuilder);
             base.OnModelCreating(modelBuilder);
         }
 
@@ -82,6 +84,14 @@ namespace MilenaSapunova.TerminateConracts.Data.Models
                 .Property(c => c.NotificationDate)
                 .IsRequired()
                 .HasColumnType("date");
+        }
+
+        private void OnCompanyModelCreating(DbModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Company>()
+               .Property(c => c.Name)
+               .IsRequired()
+               .HasColumnType("nvarchar");
         }
     }
 }

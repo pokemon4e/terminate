@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace MilenaSapunova.Terminate.Model.Contracts
+namespace MilenaSapunova.TerminateContracts.Model.Contracts
 {
     public interface IAuditable
     {

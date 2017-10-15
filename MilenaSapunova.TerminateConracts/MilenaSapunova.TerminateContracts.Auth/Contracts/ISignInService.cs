@@ -1,9 +1,9 @@
 ﻿using Microsoft.AspNet.Identity.Owin;
-using MilenaSapunova.Terminate.Data.Models;
+using MilenaSapunova.TerminateContracts.Models;
 using System;
 using System.Threading.Tasks;
 
-namespace MilenaSapunova.Terminate.Auth.Contracts
+namespace MilenaSapunova.TerminateContracts.Auth.Contracts
 {
     public interface ISignInService : IDisposable
     {

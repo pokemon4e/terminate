@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNet.Identity;
 using System.Threading.Tasks;
 
-namespace MilenaSapunova.Terminate.Auth
+namespace MilenaSapunova.TerminateContracts.Auth
 {
     public class EmailService : IIdentityMessageService
     {

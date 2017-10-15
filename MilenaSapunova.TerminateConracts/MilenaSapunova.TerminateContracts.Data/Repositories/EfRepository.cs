@@ -1,12 +1,12 @@
 ﻿using Bytes2you.Validation;
-using MilenaSapunova.Terminate.Model.Contracts;
-using MilenaSapunova.TerminateConracts.Data.Models;
+using MilenaSapunova.TerminateContracts.Data.Models;
+using MilenaSapunova.TerminateContracts.Model.Contracts;
 using System;
 using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
 using System.Linq;
 
-namespace MilenaSapunova.Terminate.Data.Repositories
+namespace MilenaSapunova.TerminateContracts.Data.Repositories
 {
     public class EfRepository<T> : IEfRepository<T> where T : class, IDeletable, IAuditable
     {

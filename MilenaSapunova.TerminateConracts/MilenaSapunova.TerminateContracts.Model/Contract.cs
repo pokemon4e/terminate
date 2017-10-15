@@ -1,9 +1,9 @@
-﻿using MilenaSapunova.Terminate.Model.Abstract;
+﻿using MilenaSapunova.TerminateContracts.Model.Abstract;
 using MilenaSapunova.TerminateContracts.Model.DataValidation;
 using System;
 using System.ComponentModel.DataAnnotations;
 
-namespace MilenaSapunova.Terminate.Data.Models
+namespace MilenaSapunova.TerminateContracts.Models
 {
     public class Contract : DataModel
     {

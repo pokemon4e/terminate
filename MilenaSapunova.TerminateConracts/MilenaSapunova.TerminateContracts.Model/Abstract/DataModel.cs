@@ -1,9 +1,9 @@
-﻿using MilenaSapunova.Terminate.Model.Contracts;
+﻿using MilenaSapunova.TerminateContracts.Model.Contracts;
 using System;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace MilenaSapunova.Terminate.Model.Abstract
+namespace MilenaSapunova.TerminateContracts.Model.Abstract
 {
     public class DataModel : IDeletable, IAuditable
     {
