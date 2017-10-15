@@ -15,10 +15,44 @@ namespace MilenaSapunova.TerminateContracts.Data.Models
         {
         }
 
+        public static MsSqlDbContext Create()
+        {
+            return new MsSqlDbContext();
+        }
+
+        public IDbSet<Contract> Contracts { get; set; }
+
+        public IDbSet<TerminationNotice> TerminationNotices { get; set; }
+
+        public IDbSet<Company> Companies { get; set; }
+
+        public IDbSet<Address> Addresses { get; set; }
+
+        public IDbSet<Town> Towns { get; set; }
+
+        public IDbSet<Country> Countries { get; set; }
+
         public override int SaveChanges()
         {
             this.ApplyAuditInfoRules();
             return base.SaveChanges();
+        }
+
+        public override Task<int> SaveChangesAsync(CancellationToken cancellationToken)
+        {
+            this.ApplyAuditInfoRules();
+            return base.SaveChangesAsync(cancellationToken);
+        }
+
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            this.OnUserModelCreating(modelBuilder);
+            this.OnContractModelCreating(modelBuilder);
+            this.OnTerminationNoticeCreating(modelBuilder);
+            this.OnCompanyModelCreating(modelBuilder);
+            this.OnAddressModelCreating(modelBuilder);
+            this.OnCountryModelCreating(modelBuilder);
+            base.OnModelCreating(modelBuilder);
         }
 
         private void ApplyAuditInfoRules()
@@ -39,28 +73,6 @@ namespace MilenaSapunova.TerminateContracts.Data.Models
                     entity.ModifiedOn = DateTime.Now;
                 }
             }
-        }
-
-        public override Task<int> SaveChangesAsync(CancellationToken cancellationToken)
-        {
-            this.ApplyAuditInfoRules();
-            return base.SaveChangesAsync(cancellationToken);
-        }
-
-        public static MsSqlDbContext Create()
-        {
-            return new MsSqlDbContext();
-        }
-
-        protected override void OnModelCreating(DbModelBuilder modelBuilder)
-        {
-            this.OnUserModelCreating(modelBuilder);
-            this.OnContractModelCreating(modelBuilder);
-            this.OnTerminationNoticeCreating(modelBuilder);
-            this.OnCompanyModelCreating(modelBuilder);
-            this.OnAddressModelCreating(modelBuilder);
-            this.OnCountryModelCreating(modelBuilder);
-            base.OnModelCreating(modelBuilder);
         }
 
         private void OnUserModelCreating(DbModelBuilder modelBuilder)

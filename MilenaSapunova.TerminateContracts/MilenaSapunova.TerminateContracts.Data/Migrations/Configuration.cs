@@ -1,12 +1,17 @@
+using CsvHelper.Configuration;
+
 namespace MilenaSapunova.TerminateContracts.Data.Migrations
 {
+    using CsvHelper;
     using Microsoft.AspNet.Identity;
     using Microsoft.AspNet.Identity.EntityFramework;
     using MilenaSapunova.TerminateContracts.Data.Models;
     using MilenaSapunova.TerminateContracts.Model;
-    using System;
     using System.Data.Entity.Migrations;
+    using System.IO;
     using System.Linq;
+    using System.Reflection;
+    using System.Text;
 
     public sealed class Configuration : DbMigrationsConfiguration<MsSqlDbContext>
     {
@@ -19,6 +24,7 @@ namespace MilenaSapunova.TerminateContracts.Data.Migrations
         protected override void Seed(MsSqlDbContext context)
         {
             this.SeedAdmin(context);
+            this.SeedCountries(context);
         }
 
         private void SeedAdmin(MsSqlDbContext context)
@@ -39,6 +45,31 @@ namespace MilenaSapunova.TerminateContracts.Data.Migrations
                 userManager.Create(user, AdministratorPassword);
 
                 userManager.AddToRole(user.Id, "Admin");
+            }
+        }
+
+
+        private void SeedCountries(MsSqlDbContext context)
+        {
+            Assembly assembly = Assembly.GetExecutingAssembly();
+            string resourceName = "MilenaSapunova.TerminateContracts.Data.Resources.countries.csv";
+            using (Stream stream = assembly.GetManifestResourceStream(resourceName))
+            {
+                using (StreamReader reader = new StreamReader(stream, Encoding.UTF8))
+                {
+                    CsvReader csvReader = new CsvReader(reader);
+                    csvReader.Configuration.RegisterClassMap<ContryMap>();
+                    var countries = csvReader.GetRecords<Country>().ToArray();
+                    context.Countries.AddOrUpdate(c => c.Name, countries);
+                }
+            }
+        }
+
+        private class ContryMap : ClassMap<Country>
+        {
+            public ContryMap()
+            {
+                Map(m => m.Name);
             }
         }
     }
