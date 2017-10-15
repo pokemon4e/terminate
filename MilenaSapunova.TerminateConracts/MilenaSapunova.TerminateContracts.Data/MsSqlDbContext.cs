@@ -97,9 +97,6 @@ namespace MilenaSapunova.TerminateContracts.Data.Models
 
             modelBuilder.Entity<Contract>()
                .HasRequired(c => c.Company);
-
-            modelBuilder.Entity<Contract>()
-               .HasOptional(c => c.TerminationNotice);
         }
 
         private void OnTerminationNoticeCreating(DbModelBuilder modelBuilder)
@@ -110,13 +107,10 @@ namespace MilenaSapunova.TerminateContracts.Data.Models
                .HasColumnType("ntext");
 
             modelBuilder.Entity<TerminationNotice>()
-            .HasRequired(t => t.Company);
+               .HasRequired(t => t.Company);
 
             modelBuilder.Entity<TerminationNotice>()
-            .HasOptional(t => t.Company);
-
-            modelBuilder.Entity<TerminationNotice>()
-            .HasOptional(t => t.Contract);
+               .HasOptional(c => c.Contract);
         }
 
         private void OnCompanyModelCreating(DbModelBuilder modelBuilder)
@@ -137,7 +131,7 @@ namespace MilenaSapunova.TerminateContracts.Data.Models
              .HasColumnType("nvarchar");
 
             modelBuilder.Entity<Company>()
-                .HasRequired(c => c.Address);
+             .HasRequired(c => c.Address);
         }
 
         private void OnAddressModelCreating(DbModelBuilder modelBuilder)

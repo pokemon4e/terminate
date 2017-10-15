@@ -76,6 +76,14 @@
     <Compile Include="Migrations\201710150153150_Add address.Designer.cs">
       <DependentUpon>201710150153150_Add address.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201710150227573_Add termination notice.cs" />
+    <Compile Include="Migrations\201710150227573_Add termination notice.Designer.cs">
+      <DependentUpon>201710150227573_Add termination notice.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201710150746224_Alter termination notice.cs" />
+    <Compile Include="Migrations\201710150746224_Alter termination notice.Designer.cs">
+      <DependentUpon>201710150746224_Alter termination notice.cs</DependentUpon>
+    </Compile>
     <Compile Include="MsSqlDbContext.cs" />
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -107,6 +115,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201710150153150_Add address.resx">
       <DependentUpon>201710150153150_Add address.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710150227573_Add termination notice.resx">
+      <DependentUpon>201710150227573_Add termination notice.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710150746224_Alter termination notice.resx">
+      <DependentUpon>201710150746224_Alter termination notice.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
