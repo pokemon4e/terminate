@@ -10,6 +10,7 @@ using System.Web;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Web.Infrastructure.DynamicModuleHelper;
 using System;
+using MilenaSapunova.TerminateConracts.Services.Contracts;
 
 [assembly: WebActivatorEx.PreApplicationStartMethod(typeof(MilenaSapunova.TerminateContracts.Web.App_Start.InjectionConfig), "Start")]
 [assembly: WebActivatorEx.ApplicationShutdownMethodAttribute(typeof(MilenaSapunova.TerminateContracts.Web.App_Start.InjectionConfig), "Stop")]
@@ -71,6 +72,13 @@ namespace MilenaSapunova.TerminateContracts.Web.App_Start
                 x.FromThisAssembly()
                  .SelectAllClasses()
                  .BindDefaultInterface();
+            });
+
+            kernel.Bind(x =>
+            {
+                x.FromAssemblyContaining(typeof(IDataService))
+                .SelectAllAbstractClasses()
+                .BindDefaultInterface();
             });
 
             kernel.Bind<ISignInService>().ToMethod(_ => HttpContext.Current.GetOwinContext().Get<ApplicationSignInManager>());

@@ -93,6 +93,7 @@
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+    <None Include="Resources\country-keyword-list.csv" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\MilenaSapunova.TerminateContracts.Model\MilenaSapunova.TerminateContracts.Model.csproj">
