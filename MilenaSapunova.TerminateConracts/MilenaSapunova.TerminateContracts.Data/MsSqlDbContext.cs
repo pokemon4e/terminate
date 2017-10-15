@@ -92,6 +92,16 @@ namespace MilenaSapunova.TerminateContracts.Data.Models
                .Property(c => c.Name)
                .IsRequired()
                .HasColumnType("nvarchar");
+
+            modelBuilder.Entity<Company>()
+              .Property(c => c.PhoneNumber)
+              .IsRequired()
+              .HasColumnType("nvarchar");
+
+            modelBuilder.Entity<Company>()
+             .Property(c => c.Email)
+             .IsRequired()
+             .HasColumnType("nvarchar");
         }
     }
 }
