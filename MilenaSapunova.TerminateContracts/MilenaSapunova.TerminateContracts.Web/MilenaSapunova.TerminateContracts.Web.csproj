@@ -276,9 +276,9 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\MilenaSapunova.TerminateConracts.Services\MilenaSapunova.TerminateConracts.Services.csproj">
+    <ProjectReference Include="..\MilenaSapunova.TerminateContracts.Services\MilenaSapunova.TerminateContracts.Services.csproj">
       <Project>{f811e115-9a5c-4a10-a2d2-3b93a8d179a8}</Project>
-      <Name>MilenaSapunova.TerminateConracts.Services</Name>
+      <Name>MilenaSapunova.TerminateContracts.Services</Name>
     </ProjectReference>
     <ProjectReference Include="..\MilenaSapunova.TerminateContracts.Auth\MilenaSapunova.TerminateContracts.Auth.csproj">
       <Project>{c8c396a6-0e85-4023-b445-2cc549d44afa}</Project>

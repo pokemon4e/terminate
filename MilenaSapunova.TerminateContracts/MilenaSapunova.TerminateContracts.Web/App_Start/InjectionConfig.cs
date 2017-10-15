@@ -10,7 +10,7 @@ using System.Web;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Web.Infrastructure.DynamicModuleHelper;
 using System;
-using MilenaSapunova.TerminateConracts.Services.Contracts;
+using MilenaSapunova.TerminateContracts.Services.Contracts;
 
 [assembly: WebActivatorEx.PreApplicationStartMethod(typeof(MilenaSapunova.TerminateContracts.Web.App_Start.InjectionConfig), "Start")]
 [assembly: WebActivatorEx.ApplicationShutdownMethodAttribute(typeof(MilenaSapunova.TerminateContracts.Web.App_Start.InjectionConfig), "Stop")]

@@ -15,7 +15,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MilenaSapunova.TerminateCon
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MilenaSapunova.TerminateContracts.Model", "MilenaSapunova.TerminateContracts.Model\MilenaSapunova.TerminateContracts.Model.csproj", "{32141C59-DC81-4434-A9AD-978DC006833A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MilenaSapunova.TerminateConracts.Services", "MilenaSapunova.TerminateConracts.Services\MilenaSapunova.TerminateConracts.Services.csproj", "{F811E115-9A5C-4A10-A2D2-3B93A8D179A8}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MilenaSapunova.TerminateContracts.Services", "MilenaSapunova.TerminateContracts.Services\MilenaSapunova.TerminateContracts.Services.csproj", "{F811E115-9A5C-4A10-A2D2-3B93A8D179A8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

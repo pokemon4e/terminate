@@ -2,7 +2,7 @@
 using MilenaSapunova.TerminateContracts.Model;
 using System.Linq;
 
-namespace MilenaSapunova.TerminateConracts.Services
+namespace MilenaSapunova.TerminateContracts.Services
 {
     public class TerminationNoticeService
     {
