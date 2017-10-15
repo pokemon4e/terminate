@@ -72,6 +72,10 @@
     <Compile Include="Migrations\201710150118185_Add company.Designer.cs">
       <DependentUpon>201710150118185_Add company.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201710150153150_Add address.cs" />
+    <Compile Include="Migrations\201710150153150_Add address.Designer.cs">
+      <DependentUpon>201710150153150_Add address.cs</DependentUpon>
+    </Compile>
     <Compile Include="MsSqlDbContext.cs" />
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -100,6 +104,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201710150118185_Add company.resx">
       <DependentUpon>201710150118185_Add company.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710150153150_Add address.resx">
+      <DependentUpon>201710150153150_Add address.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
