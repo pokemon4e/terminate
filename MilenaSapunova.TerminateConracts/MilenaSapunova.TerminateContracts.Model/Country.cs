@@ -1,6 +1,5 @@
 ﻿using MilenaSapunova.TerminateContracts.Model.Abstract;
 using MilenaSapunova.TerminateContracts.Model.DataValidation;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 namespace MilenaSapunova.TerminateContracts.Model

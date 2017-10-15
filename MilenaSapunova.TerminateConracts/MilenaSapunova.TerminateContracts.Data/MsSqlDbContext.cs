@@ -1,7 +1,6 @@
 ﻿using Microsoft.AspNet.Identity.EntityFramework;
 using MilenaSapunova.TerminateContracts.Model;
 using MilenaSapunova.TerminateContracts.Model.Contracts;
-using MilenaSapunova.TerminateContracts.Model;
 using System;
 using System.Data.Entity;
 using System.Linq;
@@ -55,16 +54,23 @@ namespace MilenaSapunova.TerminateContracts.Data.Models
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
+            this.OnUserModelCreating(modelBuilder);
             this.OnContractModelCreating(modelBuilder);
             this.OnCompanyModelCreating(modelBuilder);
+            this.OnAddressModelCreating(modelBuilder);
+            this.OnCountryModelCreating(modelBuilder);
             base.OnModelCreating(modelBuilder);
+        }
+
+        private void OnUserModelCreating(DbModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<User>()
+                .HasMany(u => u.Contracts)
+                .WithRequired(c => c.Owner);
         }
 
         private void OnContractModelCreating(DbModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Contract>()
-                .HasRequired(c => c.Owner);
-
             modelBuilder.Entity<Contract>()
                 .Property(c => c.Title)
                 .IsRequired()
@@ -84,6 +90,9 @@ namespace MilenaSapunova.TerminateContracts.Data.Models
                 .Property(c => c.NotificationDate)
                 .IsRequired()
                 .HasColumnType("date");
+
+            modelBuilder.Entity<Contract>()
+               .HasRequired(c => c.Company);
         }
 
         private void OnCompanyModelCreating(DbModelBuilder modelBuilder)
@@ -102,6 +111,28 @@ namespace MilenaSapunova.TerminateContracts.Data.Models
              .Property(c => c.Email)
              .IsRequired()
              .HasColumnType("nvarchar");
+
+            modelBuilder.Entity<Company>()
+                .HasRequired(c => c.Address);
+        }
+
+        private void OnAddressModelCreating(DbModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Address>()
+             .Property(c => c.Name)
+             .IsRequired()
+             .HasColumnType("nvarchar");
+
+            modelBuilder.Entity<Address>()
+               .HasRequired(c => c.Town);
+        }
+
+        private void OnCountryModelCreating(DbModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Country>()
+            .Property(c => c.Name)
+            .IsRequired()
+            .HasColumnType("nvarchar");
         }
     }
 }
