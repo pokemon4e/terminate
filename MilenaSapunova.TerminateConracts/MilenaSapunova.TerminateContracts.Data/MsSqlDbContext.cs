@@ -111,12 +111,6 @@ namespace MilenaSapunova.TerminateContracts.Data.Models
 
             modelBuilder.Entity<TerminationNotice>()
             .HasRequired(t => t.Company);
-
-            modelBuilder.Entity<TerminationNotice>()
-            .HasOptional(t => t.Company);
-
-            modelBuilder.Entity<TerminationNotice>()
-            .HasOptional(t => t.Contract);
         }
 
         private void OnCompanyModelCreating(DbModelBuilder modelBuilder)

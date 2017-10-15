@@ -11,8 +11,6 @@ namespace MilenaSapunova.TerminateContracts.Model
 
         public virtual Company Company { get; set; }
 
-        public virtual Contract Contract { get; set; }
-
         public virtual User Owner { get; set; }
     }
 }
