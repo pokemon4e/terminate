@@ -12,8 +12,12 @@
         public const int ContractNumberMinLength = 3;
         public const int ContractNumberMaxLength = 30;
 
-        public const string PhoneNumberContents = @"^00[0-9]{6,15}$";
+        public const string PhoneNumberRegex = @"^00[0-9]{6,15}$";
         public const int PhoneNumberMinLength = 8;
         public const int PhoneNumberMaxLength = 17;
+
+        public const string EmailRegex = @"[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?";
+        public const int EmailMinLength = 3;
+        public const int EmailMaxLength = 254;
     }
 }

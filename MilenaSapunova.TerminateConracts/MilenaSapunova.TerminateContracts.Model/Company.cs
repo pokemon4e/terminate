@@ -9,9 +9,12 @@ namespace MilenaSapunova.TerminateContracts.Model
         [MaxLength(ModelsConstraints.NameMaxLenght), MinLength(ModelsConstraints.NameMinLenght)]
         public string Name { get; set; }
 
+        [RegularExpression(ModelsConstraints.PhoneNumberRegex)]
         [MaxLength(ModelsConstraints.PhoneNumberMaxLength), MinLength(ModelsConstraints.PhoneNumberMinLength)]
         public string PhoneNumber { get; set; }
 
+        [RegularExpression(ModelsConstraints.EmailRegex)]
+        [MaxLength(ModelsConstraints.EmailMaxLength), MinLength(ModelsConstraints.EmailMinLength)]
         public string Email { get; set; }
     }
 }
