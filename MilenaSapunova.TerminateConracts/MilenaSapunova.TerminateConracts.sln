@@ -15,6 +15,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MilenaSapunova.TerminateCon
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MilenaSapunova.TerminateContracts.Model", "MilenaSapunova.TerminateContracts.Model\MilenaSapunova.TerminateContracts.Model.csproj", "{32141C59-DC81-4434-A9AD-978DC006833A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MilenaSapunova.TerminateConracts.Services", "MilenaSapunova.TerminateConracts.Services\MilenaSapunova.TerminateConracts.Services.csproj", "{F811E115-9A5C-4A10-A2D2-3B93A8D179A8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -37,6 +39,10 @@ Global
 		{32141C59-DC81-4434-A9AD-978DC006833A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{32141C59-DC81-4434-A9AD-978DC006833A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{32141C59-DC81-4434-A9AD-978DC006833A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F811E115-9A5C-4A10-A2D2-3B93A8D179A8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F811E115-9A5C-4A10-A2D2-3B93A8D179A8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F811E115-9A5C-4A10-A2D2-3B93A8D179A8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F811E115-9A5C-4A10-A2D2-3B93A8D179A8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -45,6 +51,7 @@ Global
 		{C8C396A6-0E85-4023-B445-2CC549D44AFA} = {4D8ED584-A9ED-4330-9D7D-9981623AE28A}
 		{E0A1341D-71B8-4D3B-8176-142BBF867F1D} = {29357B7C-AD3D-43AF-8071-A1395D9DBFC7}
 		{32141C59-DC81-4434-A9AD-978DC006833A} = {29357B7C-AD3D-43AF-8071-A1395D9DBFC7}
+		{F811E115-9A5C-4A10-A2D2-3B93A8D179A8} = {4D8ED584-A9ED-4330-9D7D-9981623AE28A}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {2CF7F7E4-30CB-416B-BC1C-F37DF002047A}
