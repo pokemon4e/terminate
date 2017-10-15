@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNet.Identity.EntityFramework;
 using MilenaSapunova.TerminateContracts.Model;
 using MilenaSapunova.TerminateContracts.Model.Contracts;
-using MilenaSapunova.TerminateContracts.Models;
+using MilenaSapunova.TerminateContracts.Model;
 using System;
 using System.Data.Entity;
 using System.Linq;

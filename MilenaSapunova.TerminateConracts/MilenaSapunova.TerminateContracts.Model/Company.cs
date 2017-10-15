@@ -16,5 +16,7 @@ namespace MilenaSapunova.TerminateContracts.Model
         [RegularExpression(ModelsConstraints.EmailRegex)]
         [MaxLength(ModelsConstraints.EmailMaxLength), MinLength(ModelsConstraints.EmailMinLength)]
         public string Email { get; set; }
+
+        public virtual Address Address { get; set; }
     }
 }

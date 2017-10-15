@@ -3,7 +3,7 @@ using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin;
 using Microsoft.Owin.Security.Cookies;
 using MilenaSapunova.TerminateContracts.Data.Models;
-using MilenaSapunova.TerminateContracts.Models;
+using MilenaSapunova.TerminateContracts.Model;
 using Owin;
 using System;
 

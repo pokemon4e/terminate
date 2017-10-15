@@ -4,8 +4,8 @@ using Microsoft.AspNet.Identity;
 using Microsoft.Owin.Security;
 using System.Security.Claims;
 using Microsoft.Owin;
-using MilenaSapunova.TerminateContracts.Models;
 using MilenaSapunova.TerminateContracts.Auth.Contracts;
+using MilenaSapunova.TerminateContracts.Model;
 
 namespace MilenaSapunova.TerminateContracts.Auth
 {

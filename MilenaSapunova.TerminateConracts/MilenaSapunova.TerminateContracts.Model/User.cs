@@ -7,7 +7,7 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using MilenaSapunova.TerminateContracts.Model.Contracts;
 
-namespace MilenaSapunova.TerminateContracts.Models
+namespace MilenaSapunova.TerminateContracts.Model
 {
     public class User : IdentityUser, IDeletable, IAuditable
     {

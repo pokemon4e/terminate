@@ -3,7 +3,7 @@ namespace MilenaSapunova.TerminateContracts.Data.Migrations
     using Microsoft.AspNet.Identity;
     using Microsoft.AspNet.Identity.EntityFramework;
     using MilenaSapunova.TerminateContracts.Data.Models;
-    using MilenaSapunova.TerminateContracts.Models;
+    using MilenaSapunova.TerminateContracts.Model;
     using System;
     using System.Data.Entity.Migrations;
     using System.Linq;

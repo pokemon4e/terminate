@@ -1,5 +1,5 @@
 ﻿using Microsoft.AspNet.Identity.Owin;
-using MilenaSapunova.TerminateContracts.Models;
+using MilenaSapunova.TerminateContracts.Model;
 using System;
 using System.Threading.Tasks;
 

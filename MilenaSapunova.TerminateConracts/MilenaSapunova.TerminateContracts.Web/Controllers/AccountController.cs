@@ -7,7 +7,7 @@ using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using MilenaSapunova.TerminateContracts.Web.Models;
 using MilenaSapunova.TerminateContracts.Auth.Contracts;
-using MilenaSapunova.TerminateContracts.Models;
+using MilenaSapunova.TerminateContracts.Model;
 
 namespace MilenaSapunova.TerminateContracts.Web.Controllers
 {
