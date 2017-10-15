@@ -31,7 +31,7 @@ namespace MilenaSapunova.TerminateContracts.Model
 
         public virtual ICollection<Contract> Contracts { get; set; }
 
-        public virtual ICollection<TerminationNotice> GetTerminationNotice { get; set; }
+        public virtual ICollection<TerminationNotice> TerminationNotices { get; set; }
 
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<User> manager)
         {

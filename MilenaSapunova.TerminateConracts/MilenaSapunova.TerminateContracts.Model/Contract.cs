@@ -23,6 +23,6 @@ namespace MilenaSapunova.TerminateContracts.Model
 
         public virtual Company Company { get; set; }
 
-        public virtual TerminationNotice Termination { get; set; }
+        public virtual TerminationNotice TerminationNotice { get; set; }
     }
 }

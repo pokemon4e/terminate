@@ -13,6 +13,6 @@ namespace MilenaSapunova.TerminateContracts.Model
 
         public virtual Contract Contract { get; set; }
 
-        public virtual User User { get; set; }
+        public virtual User Owner { get; set; }
     }
 }
