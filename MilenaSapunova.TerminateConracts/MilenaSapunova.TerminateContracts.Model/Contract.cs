@@ -21,6 +21,8 @@ namespace MilenaSapunova.TerminateContracts.Model
         [DateInTheFuture]
         public DateTime NotificationDate { get; set; }
 
-        public virtual Company Company { get; set;}
-}
+        public virtual Company Company { get; set; }
+
+        public virtual TerminationNotice Termination { get; set; }
+    }
 }
