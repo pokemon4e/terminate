@@ -12,6 +12,9 @@
         public const int ContractNumberMinLength = 3;
         public const int ContractNumberMaxLength = 30;
 
+        public const int ContentMinLength = 150;
+        public const int ContentMaxLength = 10000;
+
         public const int AddressNameMinLenght = 5;
         public const int AddressNameMaxLenght = 200;
 

@@ -56,6 +56,7 @@ namespace MilenaSapunova.TerminateContracts.Data.Models
         {
             this.OnUserModelCreating(modelBuilder);
             this.OnContractModelCreating(modelBuilder);
+            this.OnTerminationNoticeCreating(modelBuilder);
             this.OnCompanyModelCreating(modelBuilder);
             this.OnAddressModelCreating(modelBuilder);
             this.OnCountryModelCreating(modelBuilder);
@@ -67,6 +68,9 @@ namespace MilenaSapunova.TerminateContracts.Data.Models
             modelBuilder.Entity<User>()
                 .HasMany(u => u.Contracts)
                 .WithRequired(c => c.Owner);
+
+            modelBuilder.Entity<User>()
+                .HasMany(u => u.TerminationNotices);
         }
 
         private void OnContractModelCreating(DbModelBuilder modelBuilder)
@@ -95,6 +99,20 @@ namespace MilenaSapunova.TerminateContracts.Data.Models
                .HasRequired(c => c.Company);
         }
 
+        private void OnTerminationNoticeCreating(DbModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<TerminationNotice>()
+               .Property(t => t.Content)
+               .IsRequired()
+               .HasColumnType("ntext");
+
+            modelBuilder.Entity<TerminationNotice>()
+               .HasRequired(t => t.Company);
+
+            modelBuilder.Entity<TerminationNotice>()
+               .HasOptional(c => c.Contract);
+        }
+
         private void OnCompanyModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Company>()
@@ -113,18 +131,18 @@ namespace MilenaSapunova.TerminateContracts.Data.Models
              .HasColumnType("nvarchar");
 
             modelBuilder.Entity<Company>()
-                .HasRequired(c => c.Address);
+             .HasRequired(c => c.Address);
         }
 
         private void OnAddressModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Address>()
-             .Property(c => c.Name)
+             .Property(a => a.Name)
              .IsRequired()
              .HasColumnType("nvarchar");
 
             modelBuilder.Entity<Address>()
-               .HasRequired(c => c.Town);
+               .HasRequired(a => a.Town);
         }
 
         private void OnCountryModelCreating(DbModelBuilder modelBuilder)
