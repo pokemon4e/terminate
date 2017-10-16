@@ -9,6 +9,7 @@ using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Text;
+using System;
 
 namespace MilenaSapunova.TerminateContracts.Data.Migrations
 {
@@ -46,7 +47,6 @@ namespace MilenaSapunova.TerminateContracts.Data.Migrations
                 userManager.AddToRole(user.Id, "Admin");
             }
         }
-
 
         private void SeedCountries(MsSqlDbContext context)
         {

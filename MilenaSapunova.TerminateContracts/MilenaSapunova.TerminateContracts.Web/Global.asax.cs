@@ -1,6 +1,5 @@
-﻿using MilenaSapunova.TerminateContracts.Data.Migrations;
-using MilenaSapunova.TerminateContracts.Data.Models;
-using System.Data.Entity;
+﻿using MilenaSapunova.TerminateContracts.Web.App_Start;
+using System.Reflection;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Optimization;
@@ -12,11 +11,14 @@ namespace MilenaSapunova.TerminateContracts.Web
     {
         protected void Application_Start()
         {
-            Database.SetInitializer(new MigrateDatabaseToLatestVersion<MsSqlDbContext, Configuration>()); 
+            //Database.SetInitializer(new MigrateDatabaseToLatestVersion<MsSqlDbContext, Configuration>());
             AreaRegistration.RegisterAllAreas();
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
+
+            var mapper = new AutoMapperConfig();
+            mapper.Execute(Assembly.GetExecutingAssembly());
         }
     }
-}   
+}

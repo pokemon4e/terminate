@@ -6,5 +6,7 @@ namespace MilenaSapunova.TerminateContracts.Services.Contracts
     public interface ICountryService
     {
         IQueryable<Country> GetAll();
+
+        void Update(Country company);
     }
 }

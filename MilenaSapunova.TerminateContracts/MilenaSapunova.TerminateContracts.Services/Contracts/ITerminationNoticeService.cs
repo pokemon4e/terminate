@@ -6,5 +6,7 @@ namespace MilenaSapunova.TerminateContracts.Services
     public interface ITerminationNoticeService
     {
         IQueryable<TerminationNotice> GetAll();
+
+        void Update(Company company);
     }
 }

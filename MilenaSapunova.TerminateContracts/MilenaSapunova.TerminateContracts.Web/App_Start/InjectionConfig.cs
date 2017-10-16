@@ -11,6 +11,8 @@ using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Web.Infrastructure.DynamicModuleHelper;
 using System;
 using MilenaSapunova.TerminateContracts.Services.Contracts;
+using MilenaSapunova.TerminateContracts.Data.SaveContext;
+using AutoMapper;
 
 [assembly: WebActivatorEx.PreApplicationStartMethod(typeof(MilenaSapunova.TerminateContracts.Web.App_Start.InjectionConfig), "Start")]
 [assembly: WebActivatorEx.ApplicationShutdownMethodAttribute(typeof(MilenaSapunova.TerminateContracts.Web.App_Start.InjectionConfig), "Stop")]
@@ -85,6 +87,8 @@ namespace MilenaSapunova.TerminateContracts.Web.App_Start
             kernel.Bind<IUserService>().ToMethod(_ => HttpContext.Current.GetOwinContext().Get<ApplicationUserManager>());
             kernel.Bind(typeof(DbContext), typeof(MsSqlDbContext)).To<MsSqlDbContext>().InRequestScope();
             kernel.Bind(typeof(IEfRepository<>)).To(typeof(EfRepository<>));
+            kernel.Bind<ISaveContext>().To<SaveContext>();
+            kernel.Bind<IMapper>().To<Mapper>();
         }
     }
 }
