@@ -1,18 +1,17 @@
 using CsvHelper.Configuration;
+using CsvHelper;
+using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.EntityFramework;
+using MilenaSapunova.TerminateContracts.Data.Models;
+using MilenaSapunova.TerminateContracts.Model;
+using System.Data.Entity.Migrations;
+using System.IO;
+using System.Linq;
+using System.Reflection;
+using System.Text;
 
 namespace MilenaSapunova.TerminateContracts.Data.Migrations
 {
-    using CsvHelper;
-    using Microsoft.AspNet.Identity;
-    using Microsoft.AspNet.Identity.EntityFramework;
-    using MilenaSapunova.TerminateContracts.Data.Models;
-    using MilenaSapunova.TerminateContracts.Model;
-    using System.Data.Entity.Migrations;
-    using System.IO;
-    using System.Linq;
-    using System.Reflection;
-    using System.Text;
-
     public sealed class Configuration : DbMigrationsConfiguration<MsSqlDbContext>
     {
         public Configuration()
