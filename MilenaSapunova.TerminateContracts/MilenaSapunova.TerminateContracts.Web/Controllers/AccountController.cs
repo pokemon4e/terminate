@@ -8,6 +8,8 @@ using Microsoft.Owin.Security;
 using MilenaSapunova.TerminateContracts.Web.Models;
 using MilenaSapunova.TerminateContracts.Auth.Contracts;
 using MilenaSapunova.TerminateContracts.Model;
+using MilenaSapunova.TerminateContracts.Services.Contracts;
+using MilenaSapunova.TerminateContracts.Web.Infrastructure;
 
 namespace MilenaSapunova.TerminateContracts.Web.Controllers
 {
@@ -16,11 +18,13 @@ namespace MilenaSapunova.TerminateContracts.Web.Controllers
     {
 
         private readonly ISignInService signInService;
+        private readonly IUserManager userManager;
         private readonly IUserService userService;
 
-        public AccountController(ISignInService signInService, IUserService userService)
+        public AccountController(ISignInService signInService, IUserManager userManager, IUserService userService)
         {
             this.signInService = signInService;
+            this.userManager = userManager;
             this.userService = userService;
         }
 
@@ -41,7 +45,8 @@ namespace MilenaSapunova.TerminateContracts.Web.Controllers
                 return View(model);
             }
 
-            var result = await this.signInService.PasswordSignInAsync(model.Email, model.Password, model.RememberMe, shouldLockout: false);
+            var user = this.userService.GetAll().Where(u => u.Email == model.Email).FirstOrDefault();
+            var result = await this.signInService.PasswordSignInAsync(user.UserName, model.Password, model.RememberMe, shouldLockout: false);
             switch (result)
             {
                 case SignInStatus.Success:
@@ -104,8 +109,15 @@ namespace MilenaSapunova.TerminateContracts.Web.Controllers
         {
             if (ModelState.IsValid)
             {
-                var user = new User { UserName = model.Email, Email = model.Email };
-                var result = await this.userService.CreateAsync(user, model.Password);
+                var user = new User
+                {
+                    UserName = model.Username,
+                    Email = model.Email,
+                    FirstName = model.FirsName,
+                    LastName = model.LastName
+                };
+
+                var result = await this.userManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
                     await this.signInService.SignInAsync(user, isPersistent: false, rememberBrowser: false);
@@ -117,6 +129,16 @@ namespace MilenaSapunova.TerminateContracts.Web.Controllers
             return View(model);
         }
 
+        [AjaxOnly]
+        [HttpPost]
+        [AllowAnonymous]
+        [ValidateAntiForgeryToken]
+        public JsonResult IsUserExists(string UserName)
+        {
+            //check if any of the UserName matches the UserName specified in the Parameter
+            return Json(!userService.GetAll().Any(x => x.UserName == UserName), JsonRequestBehavior.AllowGet);
+        }
+
         [AllowAnonymous]
         public async Task<ActionResult> ConfirmEmail(string userId, string code)
         {
@@ -124,7 +146,7 @@ namespace MilenaSapunova.TerminateContracts.Web.Controllers
             {
                 return View("Error");
             }
-            var result = await this.userService.ConfirmEmailAsync(userId, code);
+            var result = await this.userManager.ConfirmEmailAsync(userId, code);
             return View(result.Succeeded ? "ConfirmEmail" : "Error");
         }
 
@@ -141,8 +163,8 @@ namespace MilenaSapunova.TerminateContracts.Web.Controllers
         {
             if (ModelState.IsValid)
             {
-                var user = await this.userService.FindByNameAsync(model.Email);
-                if (user == null || !(await this.userService.IsEmailConfirmedAsync(user.Id)))
+                var user = await this.userManager.FindByNameAsync(model.Email);
+                if (user == null || !(await this.userManager.IsEmailConfirmedAsync(user.Id)))
                 {
                     return View("ForgotPasswordConfirmation");
                 }
@@ -172,13 +194,13 @@ namespace MilenaSapunova.TerminateContracts.Web.Controllers
             {
                 return View(model);
             }
-            var user = await this.userService.FindByNameAsync(model.Email);
+            var user = await this.userManager.FindByNameAsync(model.Email);
             if (user == null)
             {
                 // Don't reveal that the user does not exist
                 return RedirectToAction("ResetPasswordConfirmation", "Account");
             }
-            var result = await this.userService.ResetPasswordAsync(user.Id, model.Code, model.Password);
+            var result = await this.userManager.ResetPasswordAsync(user.Id, model.Code, model.Password);
             if (result.Succeeded)
             {
                 return RedirectToAction("ResetPasswordConfirmation", "Account");
@@ -209,7 +231,7 @@ namespace MilenaSapunova.TerminateContracts.Web.Controllers
             {
                 return View("Error");
             }
-            var userFactors = await this.userService.GetValidTwoFactorProvidersAsync(userId);
+            var userFactors = await this.userManager.GetValidTwoFactorProvidersAsync(userId);
             var factorOptions = userFactors.Select(purpose => new SelectListItem { Text = purpose, Value = purpose }).ToList();
             return View(new SendCodeViewModel { Providers = factorOptions, ReturnUrl = returnUrl, RememberMe = rememberMe });
         }
@@ -275,10 +297,10 @@ namespace MilenaSapunova.TerminateContracts.Web.Controllers
                     return View("ExternalLoginFailure");
                 }
                 var user = new User { UserName = model.Email, Email = model.Email };
-                var result = await this.userService.CreateAsync(user);
+                var result = await this.userManager.CreateAsync(user);
                 if (result.Succeeded)
                 {
-                    result = await this.userService.AddLoginAsync(user.Id, info.Login);
+                    result = await this.userManager.AddLoginAsync(user.Id, info.Login);
                     if (result.Succeeded)
                     {
                         await this.signInService.SignInAsync(user, isPersistent: false, rememberBrowser: false);
@@ -310,9 +332,9 @@ namespace MilenaSapunova.TerminateContracts.Web.Controllers
         {
             if (disposing)
             {
-                if (this.userService != null)
+                if (this.userManager != null)
                 {
-                    this.userService.Dispose();
+                    this.userManager.Dispose();
                 }
 
                 if (this.signInService != null)

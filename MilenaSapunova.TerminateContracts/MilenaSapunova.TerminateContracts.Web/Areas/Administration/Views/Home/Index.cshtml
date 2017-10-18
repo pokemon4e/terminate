@@ -1,3 +1,57 @@
 ﻿@{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Admin Panel";
+}
+
+@section styles{
+    @Styles.Render("~/Content/datatable")
+}
+
+<div class="container" id="admin-panel">
+    <div class="row">
+        <div class="col-xs-12 users">
+            <h3>Admin Panel</h3>
+            <div class="gj-margin-top-10">
+                <table id="grid"></table>
+            </div>
+        </div>
+    </div>
+
+    <div id="edit-dialog" class="gj-display-none">
+        <div data-role="body">
+            <div class="gj-margin-top-10">
+                <input id="UserName" class="gj-textbox-md disabled" placeholder="Username" required disabled />
+            </div>
+            <div class="gj-margin-top-10">
+                <input type="text" class="gj-textbox-md" id="FirstName" placeholder="First name" required />
+            </div>
+            <div class="gj-margin-top-10">
+                <input id="LastName" class="gj-textbox-md" placeholder="LastName" required />
+            </div>
+            <div class="gj-margin-top-10">
+                <input type="email" id="Email" class="gj-textbox-md" placeholder="Email" required />
+            </div>
+            <div class="gj-margin-top-20">
+                <input type="text" id="CreatedOn" placeholder="Registered on" required />
+            </div>
+        </div>
+        <div data-role="footer">
+            <button type="button" id="btnSave" class="gj-button-md">Save</button>
+            <button type="button" id="btnCancel" class="gj-button-md">Cancel</button>
+        </div>
+    </div>
+    <div id="delete-dialog" title="Delete user" class="gj-display-none">
+        <div data-role="body">
+            Are you sure you want to delete the user?
+        </div>
+        <div data-role="footer">
+            <div class="mdl-dialog__actions">
+                <button onclick="deleteDialog.close()" class="gj-button-md">Close</button>
+                <button id="btnYes" class="gj-button-md">Yes</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section scripts {
+    @Scripts.Render("~/bundles/datatable")
 }

@@ -1,0 +1,102 @@
+﻿/* fallback */
+@media only screen and (min-width:992px) {
+    #mainNav {
+        background-color: #101010;
+    }
+}
+
+#admin-panel {
+    margin-top: 100px;
+}
+
+@font-face {
+    font-family: 'Material Icons';
+    font-style: normal;
+    font-weight: 400;
+    src: url(https://fonts.gstatic.com/s/materialicons/v30/2fcrYFNaTjcS6g4U3t-Y5ZjZjT5FdEJ140U2DJYC3mY.woff2) format('woff2');
+}
+
+.material-icons {
+    font-family: 'Material Icons';
+    font-weight: normal;
+    font-style: normal;
+    font-size: 24px;
+    line-height: 1;
+    letter-spacing: normal;
+    text-transform: none;
+    display: inline-block;
+    white-space: nowrap;
+    word-wrap: normal;
+    direction: ltr;
+    -webkit-font-feature-settings: 'liga';
+    -webkit-font-smoothing: antialiased;
+}
+
+tbody tr:nth-child(even) {
+    background-color: #f4f4f4;
+}
+
+.users div.gj-grid-wrapper div.gj-grid-md-toolbar {
+    background-color: #101010;
+    color: white;
+}
+
+.gj-frm-ctrl {
+    display: block;
+    padding: 6px 12px;
+    font-size: 14px;
+    color: #555;
+    background-color: #fff;
+    background-image: none;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+input.disabled {
+    background-color: #f4f4f4;
+    border-radius: 5px;
+}
+
+.gj-margin-top-10 {
+    margin-top: 10px;
+}
+
+.gj-margin-top-20 {
+    margin-top: 20px;
+}
+
+.gj-float-left {
+    float: left;
+}
+
+.gj-float-right {
+    float: right;
+}
+
+.gj-display-inline {
+    display: inline;
+}
+
+.gj-display-inline-block {
+    display: inline-block;
+}
+
+.gj-bold {
+    font-weight: bold;
+}
+
+.gj-display-none {
+    display: none;
+}
+
+.gj-width-200 {
+    width: 200px;
+}
+
+.gj-width-240 {
+    width: 240px;
+}
+
+.gj-clear-both {
+    clear: both;
+}

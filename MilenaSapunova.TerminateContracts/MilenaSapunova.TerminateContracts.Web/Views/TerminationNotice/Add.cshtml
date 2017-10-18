@@ -1,0 +1,71 @@
+﻿@model MilenaSapunova.TerminateContracts.Web.Models.TerminationNoticeViewModel
+
+@{
+    ViewBag.Title = "Termination notice template";
+}
+
+@section styles{
+
+    @Styles.Render("~/Content/document")
+
+}
+
+<h2>@ViewBag.Title.</h2>
+<div class="container">
+    @if (!Request.IsAuthenticated)
+    {
+        <div>
+            Have access to your termination letters and contracts everywhere:
+
+            @Html.ActionLink("Register", "Register", "Account", routeValues: new { area = "" }, htmlAttributes: new { id = "registerLink", @class = "special-btn  nav-link" })
+            @Html.ActionLink("Log in", "Login", "Account", routeValues: new { area = "" }, htmlAttributes: new { id = "loginLink", @class = "special-btn nav-link" })
+        </div>
+    }
+
+    <div style="background-image: url('../../Content/images/desk.jpg');  background-repeat: repeat-x;">
+        <div class="container col-md-9" id="desk">
+            <div class="row" id="page" style="background-image: url('../../Content/images/paper.jpg')">
+
+                @using (Html.BeginForm("Add", "TerminationNotice", FormMethod.Post, new { @class = "form-horizontal container", role = "form" }))
+                {
+                    <div class="notice">
+                        <div class="row header-notice">
+                            <div class="col-sm-6">
+                                @Html.TextBoxFor(m => m.Owner.FirstName, new { @class = "form-control", placeholder = "First name" })
+                                @Html.TextBoxFor(m => m.Owner.LastName, new { @class = "form-control", placeholder = "Last name" })
+                                @Html.TextBoxFor(m => m.Owner.LastName, new { @class = "form-control", placeholder = "Email" })
+                            </div>
+                            <div class="col-sm-6">
+                                @Html.TextBoxFor(m => m.Company.Name, new { @class = "form-control", placeholder = "Company" })
+                                @Html.TextBoxFor(m => m.Company.Address, new { @class = "form-control", placeholder = "Adress" })
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        @Html.TextBoxFor(m => m.Company.PostalCode, new { @class = "form-control", placeholder = "Postal code" })
+                                    </div>
+                                    <div class="col-sm-6">
+                                        @Html.TextBoxFor(m => m.Company.Town, new { @class = "form-control", placeholder = "Town" })
+                                    </div>
+                                </div>
+                                @Html.TextBoxFor(m => m.Company.Country, new { @class = "form-control", placeholder = "Country" })
+                                @Html.TextBoxFor(m => m.Company.PhoneNumber, new { @class = "form-control", placeholder = "Phone number" })
+                                @Html.TextBoxFor(m => m.Company.Email, new { @class = "form-control", placeholder = "Phone number" })
+                            </div>
+                        </div>
+                        <div class="row">
+                            @Html.TextAreaFor(m => m.Content, new { @class = "form-control notice-content" })
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group">
+                            <input type="submit" class="btn btn-default" value="Print" onclick=" window.print()" />
+                            @if (Request.IsAuthenticated)
+                            {
+                                <input type="submit" class="btn btn-default" value="Save" />
+                            }
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>

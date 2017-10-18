@@ -1,5 +1,4 @@
 using MilenaSapunova.TerminateContracts.Auth;
-using MilenaSapunova.TerminateContracts.Auth.Contracts;
 using MilenaSapunova.TerminateContracts.Data.Models;
 using MilenaSapunova.TerminateContracts.Data.Repositories;
 using Ninject;
@@ -13,6 +12,8 @@ using System;
 using MilenaSapunova.TerminateContracts.Services.Contracts;
 using MilenaSapunova.TerminateContracts.Data.SaveContext;
 using AutoMapper;
+using MilenaSapunova.TerminateContracts.Services;
+using MilenaSapunova.TerminateContracts.Auth.Contracts;
 
 [assembly: WebActivatorEx.PreApplicationStartMethod(typeof(MilenaSapunova.TerminateContracts.Web.App_Start.InjectionConfig), "Start")]
 [assembly: WebActivatorEx.ApplicationShutdownMethodAttribute(typeof(MilenaSapunova.TerminateContracts.Web.App_Start.InjectionConfig), "Stop")]
@@ -84,9 +85,11 @@ namespace MilenaSapunova.TerminateContracts.Web.App_Start
             });
 
             kernel.Bind<ISignInService>().ToMethod(_ => HttpContext.Current.GetOwinContext().Get<ApplicationSignInManager>());
-            kernel.Bind<IUserService>().ToMethod(_ => HttpContext.Current.GetOwinContext().Get<ApplicationUserManager>());
+            kernel.Bind<IUserManager>().ToMethod(_ => HttpContext.Current.GetOwinContext().Get<ApplicationUserManager>());
             kernel.Bind(typeof(DbContext), typeof(MsSqlDbContext)).To<MsSqlDbContext>().InRequestScope();
             kernel.Bind(typeof(IEfRepository<>)).To(typeof(EfRepository<>));
+            kernel.Bind<IUserService>().To<UserService>();
+            kernel.Bind<ITerminationNoticeService>().To<TerminationNoticeService>();
             kernel.Bind<ISaveContext>().To<SaveContext>();
             kernel.Bind<IMapper>().To<Mapper>();
         }

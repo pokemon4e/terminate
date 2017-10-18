@@ -1,0 +1,14 @@
+﻿@using System.Collections.Generic;
+
+@model IEnumerable<MilenaSapunova.TerminateContracts.Web.Models.TerminationNoticeViewModel>
+
+<div class="container document-all">
+    <div class="row">
+        @foreach (var item in Model)
+        {
+            <div class="col-sm-4 document">
+                @{Html.RenderPartial("TerminationNoticePartial", item);}
+            </div>
+         }
+    </div>
+</div>

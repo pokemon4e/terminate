@@ -10,7 +10,7 @@ using System;
 namespace MilenaSapunova.TerminateContracts.Auth
 {
     // Configure the application user manager used in this application. UserManager is defined in ASP.NET Identity and is used by the application.
-    public class ApplicationUserManager : UserManager<User>, IUserService
+    public class ApplicationUserManager : UserManager<User>, IUserManager
     {
         public ApplicationUserManager(IUserStore<User> store)
             : base(store)

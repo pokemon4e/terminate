@@ -1,4 +1,5 @@
-﻿using MilenaSapunova.TerminateContracts.Data.Models;
+﻿using Bytes2you.Validation;
+using MilenaSapunova.TerminateContracts.Data.Models;
 
 namespace MilenaSapunova.TerminateContracts.Data.SaveContext
 {
@@ -8,6 +9,7 @@ namespace MilenaSapunova.TerminateContracts.Data.SaveContext
 
         public SaveContext(MsSqlDbContext context)
         {
+            Guard.WhenArgument(context, "context").IsNull().Throw();
             this.context = context;
         }
 

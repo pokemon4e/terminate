@@ -13,9 +13,9 @@ namespace MilenaSapunova.TerminateContracts.Web.Controllers
     public class ManageController : Controller
     {
         private readonly ISignInService signInService;
-        private readonly IUserService userService;
+        private readonly IUserManager userService;
 
-        public ManageController(ISignInService signInService, IUserService userService)
+        public ManageController(ISignInService signInService, IUserManager userService)
         {
             this.signInService = signInService;
             this.userService = userService;

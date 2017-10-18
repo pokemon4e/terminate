@@ -20,6 +20,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -87,6 +88,14 @@
     <Compile Include="Migrations\201710150746224_Alter termination notice.Designer.cs">
       <DependentUpon>201710150746224_Alter termination notice.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201710161129010_Add user properties.cs" />
+    <Compile Include="Migrations\201710161129010_Add user properties.Designer.cs">
+      <DependentUpon>201710161129010_Add user properties.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201710161301546_Fix user properties.cs" />
+    <Compile Include="Migrations\201710161301546_Fix user properties.Designer.cs">
+      <DependentUpon>201710161301546_Fix user properties.cs</DependentUpon>
+    </Compile>
     <Compile Include="MsSqlDbContext.cs" />
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -98,6 +107,12 @@
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+    <EmbeddedResource Include="Migrations\201710161129010_Add user properties.resx">
+      <DependentUpon>201710161129010_Add user properties.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710161301546_Fix user properties.resx">
+      <DependentUpon>201710161301546_Fix user properties.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Resources\countries.csv" />
   </ItemGroup>
   <ItemGroup>

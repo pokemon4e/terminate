@@ -35,6 +35,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -48,6 +49,9 @@
   <ItemGroup>
     <Reference Include="AutoMapper, Version=6.1.1.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
       <HintPath>..\packages\AutoMapper.6.1.1\lib\net45\AutoMapper.dll</HintPath>
+    </Reference>
+    <Reference Include="Bytes2you.Validation, Version=2.0.0.0, Culture=neutral, PublicKeyToken=a7d501dd757e0442, processorArchitecture=MSIL">
+      <HintPath>..\packages\Bytes2you.Validation.2.0.0.0\lib\portable-win+net40+sl40+wp+Xbox40\Bytes2you.Validation.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.AspNet.Identity.EntityFramework">
       <HintPath>..\packages\Microsoft.AspNet.Identity.EntityFramework.2.2.1\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
@@ -68,8 +72,12 @@
     <Reference Include="Ninject.Web.Mvc, Version=3.2.0.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
       <HintPath>..\packages\Ninject.MVC5.3.2.1.0\lib\net45-full\Ninject.Web.Mvc.dll</HintPath>
     </Reference>
+    <Reference Include="StaticReflection, Version=1.2.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\ExpressionReflection.1.2.0\lib\net45\StaticReflection.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Data.Entity" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
@@ -209,40 +217,114 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\Administration\AdministrationAreaRegistration.cs" />
     <Compile Include="Areas\Administration\Controllers\HomeController.cs" />
+    <Compile Include="Areas\Administration\Models\UserViewModel.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\DocumentsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\TerminationNoticeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Infrastructure\AjaxOnlyAttribute.cs" />
     <Compile Include="Infrastructure\IHaveCustomMappings.cs" />
     <Compile Include="Infrastructure\IMapFrom.cs" />
     <Compile Include="Infrastructure\QueriableExtensions.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\CompanyViewModel.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\TerminationNoticeViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\datatable\table.css" />
+    <Content Include="Content\document\main.css" />
+    <Content Include="Content\gijgo\combined\gijgo.css" />
+    <Content Include="Content\gijgo\combined\gijgo.min.css" />
+    <Content Include="Content\gijgo\modular\checkbox.css" />
+    <Content Include="Content\gijgo\modular\checkbox.min.css" />
+    <Content Include="Content\gijgo\modular\core.css" />
+    <Content Include="Content\gijgo\modular\core.min.css" />
+    <Content Include="Content\gijgo\modular\datepicker.css" />
+    <Content Include="Content\gijgo\modular\datepicker.min.css" />
+    <Content Include="Content\gijgo\modular\dialog.css" />
+    <Content Include="Content\gijgo\modular\dialog.min.css" />
+    <Content Include="Content\gijgo\modular\dropdown.css" />
+    <Content Include="Content\gijgo\modular\dropdown.min.css" />
+    <Content Include="Content\gijgo\modular\editor.css" />
+    <Content Include="Content\gijgo\modular\editor.min.css" />
+    <Content Include="Content\gijgo\modular\grid.css" />
+    <Content Include="Content\gijgo\modular\grid.min.css" />
+    <Content Include="Content\gijgo\modular\tree.css" />
+    <Content Include="Content\gijgo\modular\tree.min.css" />
+    <Content Include="Content\images\desk.jpg" />
+    <Content Include="Content\images\desk2.jpg" />
+    <Content Include="Content\images\home.jpg" />
+    <Content Include="Content\main\main.css" />
+    <Content Include="Content\main\font-awesome.min.css" />
+    <Content Include="Content\main\fonts.css" />
     <Content Include="favicon.ico" />
+    <Content Include="Fonts\fontawesome-webfont.svg" />
     <Content Include="Global.asax" />
-    <Content Include="Content\Site.css" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
-    <Content Include="connectionStrings.config" />
+    <Content Include="connectionStrings.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Areas\Administration\Views\web.config" />
-    <Content Include="Areas\Administration\Views\Home\Index.cshtml" />
     <Content Include="Areas\Administration\Views\_ViewStart.cshtml" />
-    <Content Include="Areas\Administration\Views\Shared\_Layout.cshtml" />
-    <None Include="Scripts\jquery-1.10.2.intellisense.js" />
-    <Content Include="Scripts\jquery-1.10.2.js" />
-    <Content Include="Scripts\jquery-1.10.2.min.js" />
+    <Content Include="Areas\Administration\Views\Home\Index.cshtml" />
+    <Content Include="Fonts\fontawesome-webfont.eot" />
+    <Content Include="Fonts\fontawesome-webfont.ttf" />
+    <Content Include="Fonts\fontawesome-webfont.woff" />
+    <Content Include="Fonts\fontawesome-webfont.woff2" />
+    <Content Include="Fonts\FontAwesome.otf" />
+    <None Include="Scripts\jquery-1.11.1.intellisense.js" />
+    <Content Include="Scripts\gijgo\combined\gijgo.js" />
+    <Content Include="Scripts\gijgo\combined\gijgo.min.js" />
+    <Content Include="Scripts\gijgo\combined\messages\messages.bg-bg.js" />
+    <Content Include="Scripts\gijgo\combined\messages\messages.bg-bg.min.js" />
+    <Content Include="Scripts\gijgo\combined\messages\messages.de-de.js" />
+    <Content Include="Scripts\gijgo\combined\messages\messages.de-de.min.js" />
+    <Content Include="Scripts\gijgo\combined\messages\messages.fr-fr.js" />
+    <Content Include="Scripts\gijgo\combined\messages\messages.fr-fr.min.js" />
+    <Content Include="Scripts\gijgo\combined\messages\messages.pt-br.js" />
+    <Content Include="Scripts\gijgo\combined\messages\messages.pt-br.min.js" />
+    <Content Include="Scripts\gijgo\modular\checkbox.js" />
+    <Content Include="Scripts\gijgo\modular\checkbox.min.js" />
+    <Content Include="Scripts\gijgo\modular\core.js" />
+    <Content Include="Scripts\gijgo\modular\core.min.js" />
+    <Content Include="Scripts\gijgo\modular\datepicker.js" />
+    <Content Include="Scripts\gijgo\modular\datepicker.min.js" />
+    <Content Include="Scripts\gijgo\modular\dialog.js" />
+    <Content Include="Scripts\gijgo\modular\dialog.min.js" />
+    <Content Include="Scripts\gijgo\modular\draggable.js" />
+    <Content Include="Scripts\gijgo\modular\draggable.min.js" />
+    <Content Include="Scripts\gijgo\modular\dropdown.js" />
+    <Content Include="Scripts\gijgo\modular\dropdown.min.js" />
+    <Content Include="Scripts\gijgo\modular\droppable.js" />
+    <Content Include="Scripts\gijgo\modular\droppable.min.js" />
+    <Content Include="Scripts\gijgo\modular\editor.js" />
+    <Content Include="Scripts\gijgo\modular\editor.min.js" />
+    <Content Include="Scripts\gijgo\modular\grid.js" />
+    <Content Include="Scripts\gijgo\modular\grid.min.js" />
+    <Content Include="Scripts\gijgo\modular\tree.js" />
+    <Content Include="Scripts\gijgo\modular\tree.min.js" />
+    <Content Include="Scripts\jquery-1.11.1.js" />
+    <Content Include="Scripts\jquery-1.11.1.min.js" />
+    <Content Include="Scripts\jquery-1.11.1.min.map" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\main\main.js" />
+    <Content Include="Scripts\main\popper.min.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
@@ -280,14 +362,22 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Home\_Layout.cshtml" />
+    <Content Include="Views\Home\_ViewStart.cshtml" />
+    <Content Include="Views\Manage\_ViewStart.cshtml" />
+    <Content Include="Views\Account\_ViewStart.cshtml" />
+    <Content Include="Views\TerminationNotice\Add.cshtml" />
+    <Content Include="Views\TerminationNotice\_ViewStart.cshtml" />
+    <Content Include="Views\Documents\All.cshtml" />
+    <Content Include="Views\Documents\TerminationNoticePartial.cshtml" />
+    <Content Include="Views\Documents\_ViewStart.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Areas\Administration\Models\" />
+    <Folder Include="Areas\Administration\Views\Shared\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
-    <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\MilenaSapunova.TerminateContracts.Services\MilenaSapunova.TerminateContracts.Services.csproj">
@@ -341,6 +431,11 @@
     </PropertyGroup>
     <Error Condition="!Exists('..\packages\Microsoft.Net.Compilers.2.1.0\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Net.Compilers.2.1.0\build\Microsoft.Net.Compilers.props'))" />
     <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.7\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.7\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <Import Project="..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets" Condition="Exists('..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets')" />
+  <Target Name="EnsureBclBuildImported" BeforeTargets="BeforeBuild" Condition="'$(BclBuildImported)' == ''">
+    <Error Condition="!Exists('..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets')" Text="This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=317567." HelpKeyword="BCLBUILD2001" />
+    <Error Condition="Exists('..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets')" Text="The build restored NuGet packages. Build the project again to include these packages in the build. For more information, see http://go.microsoft.com/fwlink/?LinkID=317568." HelpKeyword="BCLBUILD2002" />
   </Target>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
        Other similar extension points exist, see Microsoft.Common.targets.

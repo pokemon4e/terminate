@@ -1,0 +1,5 @@
+﻿@model MilenaSapunova.TerminateContracts.Web.Models.TerminationNoticeViewModel
+
+
+<p class="document-title">@Model.Company.Name<span>@Html.ActionLink("Edit", "Add", "TerminationNotice", new { JSONModel = Json.Encode(Model.Id), page = Model.Id }, new { @class = "float-right" })</span></p>
+<img src="../../Content/images/document.jpg" class="document-img">

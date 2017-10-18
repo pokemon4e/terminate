@@ -6,7 +6,7 @@ using System.Linq;
 
 namespace MilenaSapunova.TerminateContracts.Services
 {
-    public class TerminationNoticeService
+    public class TerminationNoticeService : ITerminationNoticeService
     {
         private readonly IEfRepository<TerminationNotice> terminationNoticeRepo;
         private readonly ISaveContext context;
@@ -29,5 +29,12 @@ namespace MilenaSapunova.TerminateContracts.Services
             this.terminationNoticeRepo.Update(terminationNotice);
             this.context.Commit();
         }
+
+        public void Add(TerminationNotice terminationNotice)
+        {
+            this.terminationNoticeRepo.Add(terminationNotice);
+            this.context.Commit();
+        }
     }
 }
+

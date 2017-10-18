@@ -21,6 +21,7 @@ namespace MilenaSapunova.TerminateContracts.Model.Abstract
         [DataType(DataType.DateTime)]
         public DateTime? DeletedOn { get; set; }
 
+        [Required]
         [DataType(DataType.DateTime)]
         public DateTime CreatedOn { get; set; }
 

@@ -7,3 +7,4 @@ namespace MilenaSapunova.TerminateContracts.Web.Infrastructure
         void CreateMappings(IMapperConfigurationExpression configuration);
     }
 }
+
