@@ -28,7 +28,7 @@ namespace MilenaSapunova.TerminateContracts.Data.Migrations
 
         private void SeedAdmin(MsSqlDbContext context)
         {
-            const string AdministratorUserName = "admin";
+            const string AdministratorUserName = "admin@admin.com";
             const string AdministratorPassword = "123456";
 
             if (!context.Roles.Any())
@@ -47,19 +47,21 @@ namespace MilenaSapunova.TerminateContracts.Data.Migrations
             }
         }
 
-
         private void SeedCountries(MsSqlDbContext context)
         {
-            Assembly assembly = Assembly.GetExecutingAssembly();
-            string resourceName = "MilenaSapunova.TerminateContracts.Data.Resources.countries.csv";
-            using (Stream stream = assembly.GetManifestResourceStream(resourceName))
+            if (!context.Countries.Any())
             {
-                using (StreamReader reader = new StreamReader(stream, Encoding.UTF8))
+                Assembly assembly = Assembly.GetExecutingAssembly();
+                string resourceName = "MilenaSapunova.TerminateContracts.Data.Resources.countries.csv";
+                using (Stream stream = assembly.GetManifestResourceStream(resourceName))
                 {
-                    CsvReader csvReader = new CsvReader(reader);
-                    csvReader.Configuration.RegisterClassMap<ContryMap>();
-                    var countries = csvReader.GetRecords<Country>().ToArray();
-                    context.Countries.AddOrUpdate(c => c.Name, countries);
+                    using (StreamReader reader = new StreamReader(stream, Encoding.UTF8))
+                    {
+                        CsvReader csvReader = new CsvReader(reader);
+                        csvReader.Configuration.RegisterClassMap<ContryMap>();
+                        var countries = csvReader.GetRecords<Country>().ToArray();
+                        context.Countries.AddOrUpdate(c => c.Name, countries);
+                    }
                 }
             }
         }
